@@ -1,6 +1,6 @@
 import random
 
-main_courses = ['chicken fillet', 'filet mignon', 'steak']
+main_courses = ['chicken fillet', 'filet mignon', 'steak', 'porkchop with cheese']
 side_dish = ['potatoes', 'french potatoes', 'rice', 'buckwheat']
 salads = ['caesar salad', 'tomato salad', 'pickles']
 drinks = ['natural juice', 'soda', 'tea', 'coffee', 'iced tea']
@@ -45,4 +45,4 @@ try :
         else :
             print('Make sure you input an correct answer!')
 except :
-    print('Something went pickles :( please contact my creator!')
+    print('Something went pickles :( please contact my creator! And make sure you are using Python version 3! :)')
