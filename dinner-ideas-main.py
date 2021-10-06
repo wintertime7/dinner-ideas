@@ -1,10 +1,13 @@
 import random
+import getpass
+
+from configparser import ConfigParser
 
 #Lists of dinner choices
 main_courses = ['chicken fillet', 'filet mignon', 'steak', 'porkchop with cheese']
 side_dish = ['potatoes', 'french potatoes', 'rice', 'buckwheat']
 salads = ['caesar salad', 'tomato salad', 'pickles']
-drinks = ['natural juice', 'soda', 'tea', 'coffee', 'iced tea']
+drinks = ['natural juice', 'soda', 'tea', 'coffee', 'iced tea', 'wine']
 desserts = ['chocolate cake', 'honey cake', 'bun']
 
 #This function takes name and category of dinner course and uses randomize function to ask questions to user and display randomized foods/drinks
@@ -12,10 +15,10 @@ def questionairre(name, category) :
     #While True loop to allow user chance to retry input in case they misclick
     while True :
         random = randomize(category)
-        answer = input('Do you want an ' + name + '? (y/n)')
+        answer = input('Do you want an ' + name + '? (y/n)' )
         if answer == 'y' or answer == 'yes' :
             print('Okay! Your ' + name + ' is ' + random + '!')
-            return
+            return random
         elif answer == 'n' or answer == 'no' :
             print('As you wish!')
             return
@@ -28,22 +31,60 @@ def randomize(category) :
     randomized_number = random.randint(0, number)
     return category[randomized_number]
 
+def authorized_access() :
+    try :
+        config = ConfigParser()
+        config.read('config.ini')
+
+        dev_uname = config.get('developers', 'dev1_uname')
+        dev_pass = config.get('developers', 'dev1_pass')
+    except :
+        print('Ah, pickles! Something wrong with config.ini file!')
+
+    try :
+        uname = input('Username: ')
+        pswd = getpass.getpass('Password: ')
+
+        if uname == dev_uname and pswd == dev_pass :
+            return True
+        else :
+            return False
+    except :
+        print('Ah, pickles! Something wrong with authorization')
+
+def authorization() :
+    try:
+        print('1. Guest')
+        print('2. Authorized access')
+        what_kinda_access = input('Which access you wish to have? ')
+        if what_kinda_access == '2' :
+            return authorized_access()
+        elif what_kinda_access == '1' :
+            return
+    except:
+        print('Ah pickles! Something went wrong with authorization')
+
 #Main function, which contains both functions which are ran from this fragment of code
 #Try except code to prevent problems ruining further code, for example, user is using Python version below 3
 try :
+    access = authorization()
+    if access == True :
+        print('Hello developer!')
+    else :
+        print('Hello guest!')
     #While True loop to allow user chance to retry input in case they misclick
     while True :
         #Kind of useless line of code, but its there for aesthetic
-        is_program_running = input('Do you want to make yourself dinner, but cant decide what? (y/n)')
+        is_program_running = input('Do you want to make yourself dinner, but cant decide what? (y/n) ')
         if is_program_running == 'y' or is_program_running == 'yes' :
             print('Alright, lets start!')
-            questionairre('main course', main_courses)
-            questionairre('side dish', side_dish)
-            questionairre('salad', salads)
-            questionairre('drink', drinks)
-            questionairre('dessert', desserts)
+            l1 = questionairre('main course', main_courses)
+            l2 = questionairre('side dish', side_dish)
+            l3 = questionairre('salad', salads)
+            l4 = questionairre('drink', drinks)
+            l5 = questionairre('dessert', desserts)
             #Reroll code to allow user to try randomizing again without exiting programm
-            reroll = input('Do you wish to roll another dinner idea? (y/n)')
+            reroll = input('Do you wish to roll another dinner idea? (y/n) ')
             if reroll == 'n' or reroll == 'no' :
                 print('Alrighty then! See ya!')
                 break
