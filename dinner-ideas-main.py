@@ -3,7 +3,7 @@ import random
 main_courses = ['chicken fillet', 'filet mignon', 'steak']
 side_dish = ['potatoes', 'french potatoes', 'rice']
 salads = ['caesar salad', 'tomato salad', 'pickles']
-drinks = ['natural juice', 'soda', 'tea', 'coffee']
+drinks = ['natural juice', 'soda', 'tea', 'coffee', 'iced tea']
 desserts = ['chocolate cake', 'honey cake', 'bun']
 
 def questionairre(name, category) :
