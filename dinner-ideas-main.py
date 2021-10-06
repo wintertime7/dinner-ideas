@@ -1,7 +1,7 @@
 import random
 
 main_courses = ['chicken fillet', 'filet mignon', 'steak']
-side_dish = ['potatoes', 'french potatoes', 'rice']
+side_dish = ['potatoes', 'french potatoes', 'rice', 'buckwheat']
 salads = ['caesar salad', 'tomato salad', 'pickles']
 drinks = ['natural juice', 'soda', 'tea', 'coffee', 'iced tea']
 desserts = ['chocolate cake', 'honey cake', 'bun']
@@ -34,13 +34,13 @@ try :
             questionairre('salad', salads)
             questionairre('drink', drinks)
             questionairre('dessert', desserts)
-            reroll = input('Do you wish to try another dinner idea? (y/n)')
+            reroll = input('Do you wish to roll another dinner idea? (y/n)')
             if reroll == 'n' or reroll == 'no' :
                 print('Alrighty then! See ya!')
                 break
 
         elif is_program_running == 'n' or is_program_running == 'no' :
-            print('Well, alright then! If you change your mind, come back!')
+            print('Well, alright then! If you change your mind, come back! :)')
             break
         else :
             print('Make sure you input an correct answer!')
