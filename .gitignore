@@ -1,2 +1,4 @@
 config.ini
-logs/dinner_ideas_log.log
+dinner_ideas_database.db
+logs/
+migrations/
