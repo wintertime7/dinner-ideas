@@ -1,3 +1,2 @@
-Mini-project 'Dinner Ideas' by Rainers Smolenskis
-
+Mini-project 'Dinner Ideas' by 4witch
 Hotfix test
