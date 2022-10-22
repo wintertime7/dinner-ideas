@@ -1,1 +1,1 @@
-Mini-project 'Dinner Ideas' by 4witch
+Mini-project 'Dinner Ideas' by wintertime
